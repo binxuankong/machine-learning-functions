@@ -84,7 +84,3 @@ def trigo_cross_validation_plot():
     leg = plt.legend(fontsize=14)
     leg.get_frame().set_edgecolor('black')
     plt.show()
-
-trigo_cross_validation_plot()
-
-
