@@ -84,3 +84,27 @@ def trigo_cross_validation_plot():
     leg = plt.legend(fontsize=14)
     leg.get_frame().set_edgecolor('black')
     plt.show()
+
+# Plot the graph of average error against order of gaussian basis
+def gaussian_cross_validation_plot():
+    order = []
+    error = []
+    mle_error = []
+    for i in range(0, 11):
+        order.append(i)
+        error.append(gaussian_validation(i, X, Y))
+        mle_error.append(ml_error_estimator(gaussian_regression, i, X, Y))
+    order_new = np.linspace(0, 10, 200)
+    error_smooth = spline(order, error, order_new)
+    mle_error_smooth = spline(order, mle_error, order_new)
+    plt.figure
+    plt.plot(order, error, 'bo', label='average test error')
+    plt.plot(order_new, error_smooth, 'b-')
+    plt.plot(order, mle_error, 'r*', label='maximum likelihood value for $σ^2$')
+    plt.plot(order_new, mle_error_smooth, 'r-')
+    plt.title('Leave-One-Out Cross Validation', fontsize=20)
+    plt.xlabel('Order of Basis', fontsize=16)
+    plt.xticks(np.arange(0, 11, 1))
+    leg = plt.legend(fontsize=14)
+    leg.get_frame().set_edgecolor('black')
+    plt.show()
