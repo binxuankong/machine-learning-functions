@@ -9,9 +9,12 @@ X = np.reshape(np.linspace(0, 1.0, N), (N, 1))
 # Output
 Y = np.cos(10*X**2) - 0.6 * np.sin(X**2) + 0.5 * X**2
 
+# Alpha value: the variance of the gaussian prior
 alpha = 1
+# Beta value: the (error) variance
 beta = 0.1
 
+# Starting point of gradient descent
 x_start = np.array([0.25, 0.4])
 precision = 0.0001
 max_iterations = 150
@@ -127,18 +130,22 @@ def gaussian_plot():
     error_bar_up, error_bar_down = std_deviation_error_bar(E, V)
     noise_bar_up, noise_bar_down = noise_error_bar(E, V)
     plt.figure
+    # Plot 5 samples from the posterior distribution
     plt.plot(x, sample1, 'r-', label='sample 1')
     plt.plot(x, sample2, 'y-', label='sample 2')
     plt.plot(x, sample3, 'b-', label='sample 3')
     plt.plot(x, sample4, 'g-', label='sample 4')
     plt.plot(x, sample5, 'm-', label='sample 5')
+    # Plot the predictive mean
     plt.plot(x, E, 'k-', label='predictive mean')
+    # Plot the noise free error bar
     plt.plot([0], [0], 'c-', label='standard deviation error bar')
     plt.fill_between(x.flatten(), error_bar_up, error_bar_down, facecolor='cyan', alpha=0.3)
+    # Plot the error bar with noise
     plt.plot(x, noise_bar_up, 'k:', label='error bar with noise')
     plt.plot(x, noise_bar_down, 'k:')
     plt.plot(X, Y, 'ko', label='data')
-    plt.xlim(-1.0, 1.5)
+    plt.xlim(-1.0, 2.0)
     plt.title('Predicted Function Values and Predictive Mean using Gaussian Basis Function', fontsize=20)
     plt.xlabel('x', fontsize=16)
     plt.ylabel('y', fontsize=16)
