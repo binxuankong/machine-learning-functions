@@ -1,3 +1,3 @@
-# Machine Learning Functions
+# Data Science Revision
 
-Basic and intermediate functions used frequently in machine learing operations.
+Contains basic and intermediate notebooks that are frequently used in data science.
