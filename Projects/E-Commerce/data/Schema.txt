@@ -1,0 +1,39 @@
+notfis.csv
+root
+ |-- reason_id: string (nullable = true)
+ |-- marketing_channel: string (nullable = true)
+ |-- notif_status: string (nullable = true)
+ |-- user_id: string (nullable = true)
+ |-- record_date: timestamp (nullable = true)
+ 
+ trans.csv
+ root
+ |-- record_date: timestamp (nullable = true)
+ |-- user_id: string (nullable = true)
+ |-- cardholderpresence: string (nullable = true)
+ |-- trans_amount: double (nullable = true)
+ |-- trans_id: string (nullable = true)
+ |-- trans_state: string (nullable = true)
+ |-- trans_type_id: string (nullable = true)
+ 
+ users.csv
+ root
+ |-- user_id: string (nullable = true)
+ |-- birth_year: integer (nullable = true)
+ |-- record_date: timestamp (nullable = true)
+ |-- plan: string (nullable = true)
+ |-- attributes_notifications_marketing_push: double (nullable = true)
+ |-- attributes_notifications_marketing_email: double (nullable = true)
+ |-- num_contacts: integer (nullable = true)
+ |-- num_referrals: integer (nullable = true)
+ |-- num_successful_referrals: integer (nullable = true)
+ 
+ reason_type.csv
+ root
+ |-- reason_id: string (nullable = true)
+ |-- reason_name: string (nullable = true)
+ 
+ trans_type.csv
+ root
+ |-- trans_type_id: string (nullable = true)
+ |-- trans_type_name: string (nullable = true)
